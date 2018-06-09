@@ -35,14 +35,6 @@
  */
 - (void)rc_createTable_signal;
 
-
-/**
- 插入数据（db：signal）
- @param signal_param 存储数据
- */
-- (void)rc_insert_signal:(NSDictionary *)signal_param;
-
-
 /**
  插入数据（db：signal）
  @采用queue 的方式保证访问资源安全 （sync 同步 ; DISPATCH_CURRENT_QUEUE_LABEL 串行）
@@ -50,23 +42,11 @@
  */
 - (void)rc_queue_insert_signal:(NSDictionary *)signal_param;
 
-
-/**
- 清除signal db 数据
- */
-- (void)rc_clear_signal;
-
 /**
  清除signal db 数据
  方式：queue 线程安全
  */
 - (void)rc_queue_clear_signal;
-
-
-/**
- 查询数据
- */
-- (void)rc_query_signal:(void(^)(NSArray *rs))callback;
 
 /**
  查询数据
